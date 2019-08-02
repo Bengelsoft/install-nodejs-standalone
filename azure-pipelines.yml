@@ -20,12 +20,11 @@ steps:
     echo 'install-standalone'
     sh node-install-standalone.sh --force
     PATH=$PATH:$PWD/node/bin
-    NODEVERSION=$("node" --version 2>&1)
+    NODEVERSION=$("$PWD/node/bin/node" --version 2>&1)
     echo 'node version after install-standalone'
     regexp="^v([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})"
     [[ $NODEVERSION =~ $regexp ]] && echo "correct node-install-standalone" | exit 0 || echo "failed to install node-install-standalone" | exit 1
-    echo 'version node:'
-    $NODEVERSION
+    echo "version node: ${NODEVERSION}"
 
   displayName: 'Run node-install-standalone.sh'
 
