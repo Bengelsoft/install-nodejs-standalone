@@ -22,6 +22,6 @@ steps:
     
     echo 'npm version after install-standalone'
     regexp="^v([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})"
-    [[ $NPMVERSION =~ $regexp ]] && echo "correct node-install-standalone" | exit 0 || echo "failed to install node-install-standalone" | exit 1
+    [[ $NPMVERSION =~ $regexp ]] && echo "correct node-install-standalone" | exit 1 || echo "failed to install node-install-standalone" | exit 1
 
   displayName: 'Run node-install-standalone.sh'
