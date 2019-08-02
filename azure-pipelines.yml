@@ -21,11 +21,8 @@ steps:
     sh node-install-standalone.sh --force
     PATH=$PATH:$PWD/node/bin
     NPMVERSION=$("node" --version 2>&1)
-
-  displayName: 'Run node-install-standalone.sh'
-- script: |   
     echo 'node version after install-standalone'
     regexp="^v([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})"
     [[ $NPMVERSION =~ $regexp ]] && echo "correct node-install-standalone" | exit 0 || echo "failed to install node-install-standalone" | exit 1
 
-  displayName: 'Check correct download'
+   displayName: 'Run node-install-standalone.sh'
