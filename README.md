@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/bartengelhard/bartengelhard/_apis/build/status/Bengelsoft.install-node-standalone?branchName=master)](https://dev.azure.com/bartengelhard/bartengelhard/_build/latest?definitionId=3&branchName=master)
 # install-node-standalone
 Bash script for download standalone Nodejs for Windows and Linux
 

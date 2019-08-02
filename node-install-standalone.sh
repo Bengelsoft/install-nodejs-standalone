@@ -284,7 +284,7 @@ confirm "Install Node.js ${GREEN}${RESOLVED}${NO_COLOR} to ${BOLD}${GREEN}${PREF
 
 info "Installing Node.js, please wait…"
 
-	rm -r ${PREFIX}/node
+	rm -rf ${PREFIX}/node
 	mkdir -p ${PREFIX}/node/bin
 	fetchNode "${URL}"
 if [ "${EXT}" = zip ]; then

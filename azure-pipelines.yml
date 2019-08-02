@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    rm -rf $PWD/node/
+    echo 'node version before install-standalone'
+    node --version
+
+  displayName: 'Check node version'
+- script: |  
+    echo 'install-standalone'
+    sh node-install-standalone.sh --force
+    PATH=$PATH:$PWD/node/bin
+    NODEVERSION=$("$PWD/node/bin/node" --version 2>&1)
+    echo 'node version after install-standalone'
+    regexp="^v([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})"
+    [[ $NODEVERSION =~ $regexp ]] && echo "correct node-install-standalone" | exit 0 || echo "failed to install node-install-standalone" | exit 1
+    echo "version node: ${NODEVERSION}"
+
+  displayName: 'Run node-install-standalone.sh'
+
