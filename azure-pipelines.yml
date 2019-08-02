@@ -14,6 +14,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    sh node-install-standalone.sh --force
+    PATH=$PATH:$PWD/node/bin
+    npm --version
   displayName: 'Run a multi-line script'
